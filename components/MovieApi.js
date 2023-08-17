@@ -5,7 +5,7 @@ import MovieList from './MovieList'
 import SearchBar from './SearchBar'
 
 export default function MovieApi() {
-    const [search, setSearch] = useState ("")
+    const [search, setSearch] = useState ("Naruto")
     const [movies, setMovies] = useState([]);
     const [errorMessage, setErrorMessage] = useState ("");
     const [selectedType, setSelectedType] = useState("");
@@ -35,14 +35,14 @@ export default function MovieApi() {
         fetchMovies();
     },[search, selectedType]);
 
-    function handleSearch() {
-        setSearch();
-        fetchMovies();
+    const handleSearchChange = (newSearch) => {
+        setSearch(newSearch)
     }
 
   return (
     <View>
-        <SearchBar value = {search} onChange = {handleSearch}/>
+        <SearchBar value = {search} onChange = {handleSearchChange} setSearch={setSearch}/>
+        <MovieList movies ={movies}/>
     </View>
   )
 }

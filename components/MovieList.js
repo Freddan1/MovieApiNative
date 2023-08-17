@@ -29,15 +29,17 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     item: {
-        backgroundColor: "pink",
+        backgroundColor: "lightgrey",
         padding: 20,
-        marginTop: 40,
+        marginTop:20,
         marginHorizontal: 16,
+        borderRadius: 10,
     },
     title: {
         fontSize: 32,
     },
     poster: {
+        borderRadius: 10,
         height: 200,
         width: 200,
     }

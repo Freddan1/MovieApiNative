@@ -1,14 +1,13 @@
 import { createDrawerNavigator } from '@react-navigation/drawer';
-import Home from './Home';
-import Contact from './Contact';
+import StackNavigator from './StackNavigation';
 
 const Drawer = createDrawerNavigator();
 
 export default function DrawerNavigator() {
   return (
     <Drawer.Navigator>
-      <Drawer.Screen name="Home" component={Home} />
-      <Drawer.Screen name="Contact" component={Contact} />
+      <Drawer.Screen name="Home" component={StackNavigator} />
+      <Drawer.Screen name="Contact" component={StackNavigator} />
     </Drawer.Navigator>
   );
 }

@@ -1,9 +1,15 @@
 import React from 'react'
-import { Text } from 'react-native'
+import { Text, Button, View } from 'react-native'
 
-function Home() {
+function Home({navigation}) {
   return (
-    <Text>Home</Text>
+    <View>
+      <Text>Home</Text>
+      <Button
+        title='Go to contact'
+        onPress={() => navigation.navigate("Contact")}
+      />
+    </View>
   )
 }
 

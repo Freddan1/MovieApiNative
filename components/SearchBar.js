@@ -1,21 +1,17 @@
 import React from 'react'
 import { SafeAreaView, TextInput, StyleSheet, View } from 'react-native'
-import MovieList from './MovieList';
-import { useState } from 'react';
 
 
 function SearchBar({ search, setSearch }) {
-//   const [search, setSearch] = useState("") 
-  console.log(search) 
   return (
     <SafeAreaView style={{ flex: 1, marginHorizontal: 50,}}>
         <View>
             <TextInput
                 placeholder='MEN SÖK DÅ!'
-                clearButtonMode='always'
                 style={styles.SearchBar}
-                // value = {search} onChangeText={(text) => setSearch(text)}
-            />
+                value = {search}
+                onChangeText={(text) => setSearch(text)}
+                />
         </View>
     </SafeAreaView>
   );

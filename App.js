@@ -1,26 +1,27 @@
 import 'react-native-gesture-handler'; 
-import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
-import Movie from './components/Movie';
 import { HeaderBar } from './components/HeaderBar';
-import MovieList from './components/MovieList';
 import MovieApi from './components/MovieApi';
-import SearchBar from './components/SearchBar';
+import StackNavigator from './components/StackNavigation';
+import { NavigationContainer } from '@react-navigation/native';
+import DrawerNavigator from './components/DrawerNavigator';
 
 
 export default function App() {
   return (
-    <View style={styles.container}>
-      <SearchBar/>
-      <MovieApi/>
-    </View>
+    <NavigationContainer>
+      <DrawerNavigator/>
+      <View style={styles.container}>
+        <MovieApi/>
+      </View>
+    </NavigationContainer>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: 'beige',
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
