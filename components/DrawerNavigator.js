@@ -7,7 +7,6 @@ export default function DrawerNavigator() {
   return (
     <Drawer.Navigator>
       <Drawer.Screen name="Home" component={StackNavigator} />
-      <Drawer.Screen name="Contact" component={StackNavigator} />
     </Drawer.Navigator>
   );
 }

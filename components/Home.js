@@ -5,13 +5,12 @@ import MovieApi from './MovieApi';
 function Home({navigation}) {
   return (
     <View>
-      <Text></Text>
-      <Button
+      {/* <Button
         title='Go to contact'
         onPress={() => navigation.navigate("Contact")}
-      />
+      /> */}
         <View style={styles.container}>
-         <MovieApi/>
+         <MovieApi navigation={navigation}/>
         </View>
     </View>
   )
