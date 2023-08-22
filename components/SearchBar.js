@@ -2,15 +2,15 @@ import React from 'react'
 import { SafeAreaView, TextInput, StyleSheet, View } from 'react-native'
 
 
-function SearchBar({ search, setSearch }) {
+function SearchBar({ search, handleSearch }) {
   return (
-    <SafeAreaView style={{ flex: 1, marginHorizontal: 50,}}>
+    <SafeAreaView style={{flex: 1, marginHorizontal: 50,}}>
         <View>
             <TextInput
                 placeholder='MEN SÖK DÅ!'
                 style={styles.SearchBar}
                 value = {search}
-                onChangeText={(text) => setSearch(text)}
+                onChangeText={(text) => (handleSearch(text))} 
                 />
         </View>
     </SafeAreaView>
@@ -19,7 +19,7 @@ function SearchBar({ search, setSearch }) {
 
 const styles = StyleSheet.create({
     SearchBar: {
-        marginTop: 100,
+        marginTop: 10,
         paddingHorizontal: 20,
         paddingVertical: 10,
         borderColor: "#ccc",

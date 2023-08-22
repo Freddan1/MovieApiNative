@@ -1,6 +1,7 @@
 
 import React from 'react'
 import { View, Image, FlatList, SafeAreaView, StyleSheet, Text } from 'react-native'
+import Movie from './Movie';
 
 function MovieList({ movies }) {
     const renderMovies = ({ item }) => (
@@ -19,6 +20,7 @@ function MovieList({ movies }) {
                 renderItem={renderMovies}
                 keyExtractor={item => item.imdbID}
             />
+            <Movie/>
         </View>
     </SafeAreaView>
   )
@@ -26,12 +28,11 @@ function MovieList({ movies }) {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
     },
     item: {
         backgroundColor: "lightgrey",
         padding: 20,
-        marginTop:20,
+        marginTop:70,
         marginHorizontal: 16,
         borderRadius: 10,
     },

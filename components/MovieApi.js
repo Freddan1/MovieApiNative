@@ -5,14 +5,16 @@ import MovieList from './MovieList'
 import SearchBar from './SearchBar'
 
 export default function MovieApi() {
-    const [search, setSearch] = useState ("Naruto")
+    const [search, setSearch] = useState ("naruto")
     const [movies, setMovies] = useState([]);
     const [errorMessage, setErrorMessage] = useState ("");
     const [selectedType, setSelectedType] = useState("");
+
+    let newSearch = setSearch
     
     const fetchMovies = async () => {
         try {
-            const response = await fetch(`http://www.omdbapi.com/?apikey=57a921d4&s=${search}&type=${selectedType}`);
+            const response = await fetch(`http://www.omdbapi.com/?apikey=57a921d4&s=${newSearch}`);
             const movies = await response.json();
             if(movies.Response =="True"){
                 setMovies(movies.Search);
@@ -35,14 +37,16 @@ export default function MovieApi() {
         fetchMovies();
     },[search, selectedType]);
 
-    const handleSearchChange = (newSearch) => {
-        setSearch(newSearch)
+    function handleSearch(value) {
+        newSearch = value
+        setSearch(newSearch);
+        fetchMovies();
     }
 
   return (
     <View>
-        <SearchBar value = {search} onChange = {handleSearchChange} setSearch={setSearch}/>
-        <MovieList movies ={movies}/>
+        <SearchBar value = {search} handleSearch = {handleSearch}/>
+        <MovieList movies={movies} />
     </View>
   )
 }
