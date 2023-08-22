@@ -8,11 +8,10 @@ function MovieList({ movies, navigation }) {
         <View style={styles.item} key={item.imdbID}>
             <View style={styles.container}>
                 <Image source = {{ uri: item.Poster}} style= {styles.poster}/>
-                <Text style={styles.title}>{item.Title}</Text>
-                <Text style={styles.year}>Year: {item.Year}</Text>
-                <Text style={styles.type}>Category: {item.Type}</Text>
                 <TouchableOpacity onPress={() => navigation.navigate("Details", { searchID: item.imdbID })}>
-                    <Text>Read more</Text>
+                    <Text style={styles.title}>{item.Title}</Text>
+                    <Text style={styles.year}>Year: {item.Year}</Text>
+                    <Text style={styles.type}>Category: {item.Type}</Text>
                 </TouchableOpacity>
             </View>
         </View>
@@ -38,14 +37,13 @@ const styles = StyleSheet.create({
     },
 
     container2: {
-        flexWrap: 'wrap',
-        backgroundColor: 'beige',
+        backgroundColor: 'black',
         marginTop: 70,
     },
     
     item: {
-        backgroundColor: "lightgrey",
-        padding: 20,
+        backgroundColor: "#fff",
+        padding: 5,
         marginTop:10,
         marginHorizontal: 16,
         borderRadius: 10,
@@ -60,7 +58,6 @@ const styles = StyleSheet.create({
         height: 100,
         width: 100,
     },
-
 });
 
 export default MovieList
