@@ -1,24 +1,25 @@
 
 import React from 'react'
 import { View, Image, FlatList, SafeAreaView, StyleSheet, Text } from 'react-native'
-import Movie from './Movie';
 import { TouchableOpacity  } from 'react-native';
 
 function MovieList({ movies, navigation }) {
     const renderMovies = ({ item }) => (
         <View style={styles.item} key={item.imdbID}>
-            <Image source = {{ uri: item.Poster}} style= {styles.poster}/>
-            <Text style={styles.title}>{item.Title}</Text>
-            <Text style={styles.year}>Year: {item.Year}</Text>
-            <Text style={styles.type}>Category: {item.Type}</Text>
-            <TouchableOpacity onPress={() => navigation.navigate("Details", { searchID: item.imdbID })}>
-                <Text>Read more</Text>
-            </TouchableOpacity>
+            <View style={styles.container}>
+                <Image source = {{ uri: item.Poster}} style= {styles.poster}/>
+                <Text style={styles.title}>{item.Title}</Text>
+                <Text style={styles.year}>Year: {item.Year}</Text>
+                <Text style={styles.type}>Category: {item.Type}</Text>
+                <TouchableOpacity onPress={() => navigation.navigate("Details", { searchID: item.imdbID })}>
+                    <Text>Read more</Text>
+                </TouchableOpacity>
+            </View>
         </View>
     )    
   return (
-    <SafeAreaView style={styles.container}>
-        <View >
+    <SafeAreaView style={styles.container2}>
+        <View>
             <FlatList
                 data={movies}
                 renderItem={renderMovies}
@@ -31,9 +32,17 @@ function MovieList({ movies, navigation }) {
 
 const styles = StyleSheet.create({
     container: {
-        backgroundColor: "red",
+        flexDirection: 'row',
+        width: '100%',
+        backgroundColor: "#fff",
+    },
+
+    container2: {
+        flexWrap: 'wrap',
+        backgroundColor: 'beige',
         marginTop: 70,
     },
+    
     item: {
         backgroundColor: "lightgrey",
         padding: 20,
@@ -42,13 +51,16 @@ const styles = StyleSheet.create({
         borderRadius: 10,
     },
     title: {
-        fontSize: 32,
+        padding: 2,
+        fontSize: 20,
+        fontWeight: '500'
     },
     poster: {
         borderRadius: 10,
-        height: 200,
-        width: 200,
-    }
+        height: 100,
+        width: 100,
+    },
+
 });
 
 export default MovieList
