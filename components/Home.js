@@ -1,6 +1,7 @@
 import React from 'react'
 import { Text, Button, View, StyleSheet } from 'react-native'
 import MovieApi from './MovieApi';
+import Settings from './Settings';
 
 function Home({navigation}) {
   return (
@@ -11,6 +12,7 @@ function Home({navigation}) {
       /> */}
         <View style={styles.container}>
          <MovieApi navigation={navigation}/>
+         <Settings navigation={navigation}/>
         </View>
     </View>
   )
@@ -18,7 +20,8 @@ function Home({navigation}) {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#fff',
+    width: "100%",
+    backgroundColor: 'black',
     alignItems: 'center',
     justifyContent: 'center',
   },

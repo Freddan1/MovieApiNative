@@ -5,29 +5,26 @@ import { Feather } from '@expo/vector-icons';
 
 function SearchBar({ search, handleSearch }) {
   return (
-    <SafeAreaView style={{flex: 1, marginHorizontal: 50,}}>
+    <SafeAreaView style={{flex: 1, marginHorizontal: 15,}}>
         <View>
             <TextInput
-                placeholder='Sök'
+                placeholder='Sök' 
                 style={styles.SearchBar}
                 value = {search}
                 onChangeText={(text) => (handleSearch(text))} 
+                selectionColor={'orange'}
                 />
-        <Feather name="search" size={24} color="black" style={styles.searchIcon}/>
         </View>
+          <Feather name="search" size={20} color="grey" style={styles.searchIcon}/>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
-    SearchBar: {
-      flexDirection: 'row',
+  SearchBar: {
       marginTop: 10,
-      paddingHorizontal: 20,
+      paddingHorizontal: 40,
       paddingVertical: 10,
-      borderColor: "#ccc",
-      borderWidth: 1,
-      borderRadius: 8,
       height: 40,
       width: "100%",
       justifyContent: "center",
@@ -37,6 +34,11 @@ const styles = StyleSheet.create({
 
     searchIcon: {
         marginRight: 10,
+        marginTop: 20,
+        height: 20,
+        width: 20,
+        flexDirection: "row-reverse",
+
     },
 });
 

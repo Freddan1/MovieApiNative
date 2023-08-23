@@ -9,7 +9,7 @@ function MovieList({ movies, navigation }) {
             <View style={styles.container}>
                 <Image source = {{ uri: item.Poster}} style= {styles.poster}/>
                 <TouchableOpacity onPress={() => navigation.navigate("Details", { searchID: item.imdbID })}>
-                    <Text style={styles.title}>{item.Title}</Text>
+                    <Text style={styles.title}>{item.Title.length > 30 ? item.Title.substring(0,19) + '...' : item.Title}</Text>
                     <Text style={styles.year}>Year: {item.Year}</Text>
                     <Text style={styles.type}>Category: {item.Type}</Text>
                 </TouchableOpacity>
@@ -17,8 +17,8 @@ function MovieList({ movies, navigation }) {
         </View>
     )    
   return (
-    <SafeAreaView style={styles.container2}>
-        <View>
+    <SafeAreaView >
+        <View style={styles.container2}>
             <FlatList
                 data={movies}
                 renderItem={renderMovies}
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
     },
 
     container2: {
+        width: 370,
         backgroundColor: 'black',
         marginTop: 70,
     },
