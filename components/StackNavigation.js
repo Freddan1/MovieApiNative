@@ -18,7 +18,9 @@ function StackNavigator() {
         <Stack.Screen name="Home" component={Home} options={{
           headerStyle: {
             backgroundColor: "black"
-          }
+          },
+          title: "Home",
+            headerTintColor: "#fff"
         }} />
         <Stack.Screen name="Details" component={Movie} />
         <Stack.Screen name="Settings" component={Settings}/>
